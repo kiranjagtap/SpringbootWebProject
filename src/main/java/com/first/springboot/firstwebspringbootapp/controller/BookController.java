@@ -6,6 +6,7 @@ import com.first.springboot.firstwebspringbootapp.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class BookController {
     }
 
     @PostMapping
-    public Book insert(@RequestBody BookDto bookDto){
+    public Book insert(@Valid @RequestBody BookDto bookDto){
         return bookService.insert(bookDto);
     }
 
