@@ -1,6 +1,7 @@
 package com.first.springboot.firstwebspringbootapp.model;
 
 
+import com.first.springboot.firstwebspringbootapp.dto.BookDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,4 +23,12 @@ public class Book {
 
     @Column(name="book")
     private String book;
+
+    @ManyToOne
+    private Category category;
+    public Book(BookDto bookDto) {
+        this.id = bookDto.getId();
+        this.book = bookDto.getBook();
+
+    }
 }
